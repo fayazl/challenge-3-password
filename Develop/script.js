@@ -9,52 +9,49 @@ var confirmSpecial;
 var userChoices;
 
 
-var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-// Var to Upperase
+var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+// Var to Upperase
 var blankUpper = [];
 var toUpper = function (x) {
   return x.toUpperCase();
 };
-
 upperCase = lowerCase.map(toUpper);
+var numbers = [0,1,2,3,4,5,6,7,8,9,];
+var special = ["!", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
-var numbers = [0,1,2,3,4,5,6,7,8,9,]
-var special = ["!", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"]
+//Add password to the input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-
-
-function generatePassword() {
-
+  passwordText.value = password;
 }
 
-function getUserOptions(){
 
-  var userChoices = {};
 
+// Start Function
+function generatePassword() {
+
+  //User Options
+    var passwordLength = window.prompt("How many characters would you like your password to be? Choose between 8 and 128!");
+    console.log("Password length " + passwordLegnth);
+
+    if(!passwordLegnth) {
+      alert("Required Value");
+   
+    } else if (passswordLegnth < 8 || passwordLegnth > 128){
+      passwordLegnth = prompt("You must choose between 8 and 128 characters");
+      console.log("Password length " + passwordLegnth);
     
-    //Prompt for legnth
-    var passwordLegnth = window.prompt("How many characters would you like your password to be? Choose between 8 and 128!");
-    //validate leChth (later)
-    //sign to UserOptions
-    userChoices.passwordLegnth = passwordLegnth;
-
-
-    //Prompt for upperCase
-    var upperCase = confirm("Would you like uppercase characters?");
-    //sign to upperCase
-    userChoices.upperCase = upperCase;
-    
-    //Prompt for lowerCase
-    var lowerCase = confirm("Would you like lowercase characters?");
-    //sign to lowerCase
-    userChoices.lowerCase = lowerCase;
-
-    return UserOptions ()
-
-
-    var alphaNumeric = window.prompt("Would you like numeric characters?");
-    var specialCharacter = window.prompt("Would you like special characters?");
+    } else {
+      confirmlower = confirm("Would you like lowercase characters?");
+      console.log("Lower case " + confirmLower);
+      confirmUpper = confirm("Would you like uppercase characters?");
+      console.log("Upper case " + confirmUpper);
+      confirmSpecial("Would you like to use special characters?");
+      console.log("Special Character " + confirmSpecial)
+    }
 
 }
 
