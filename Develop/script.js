@@ -1,5 +1,28 @@
-// Get references to the #generate element
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
+
+var passwordLegnth;
+var confirmLower;
+var confirmUpper;
+var confirmNumber;
+var confirmSpecial;
+var userChoices;
+
+
+var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+// Var to Upperase
+
+var blankUpper = [];
+var toUpper = function (x) {
+  return x.toUpperCase();
+};
+
+upperCase = lowerCase.map(toUpper);
+
+var numbers = [0,1,2,3,4,5,6,7,8,9,]
+var special = ["!", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"]
+
+
 
 function generatePassword() {
 
@@ -23,7 +46,7 @@ function getUserOptions(){
     userChoices.upperCase = upperCase;
     
     //Prompt for lowerCase
-    var lowerCase = window.prompt("Would you like lowercase characters?");
+    var lowerCase = confirm("Would you like lowercase characters?");
     //sign to lowerCase
     userChoices.lowerCase = lowerCase;
 
