@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var passwordLegnth;
+var passwordLength;
 var confirmLower;
 var confirmUpper;
 var confirmNumber;
@@ -36,23 +36,25 @@ function generatePassword() {
 
   //User Options
     var passwordLength = window.prompt("How many characters would you like your password to be? Choose between 8 and 128!");
-    console.log("Password length " + passwordLegnth);
+    console.log("Password length " + passwordLength);
 
-    if(!passwordLegnth) {
+    if(!passwordLength) {
       alert("You Must Input a Value!");
-   
-    } else if (passswordLegnth < 8 || passwordLegnth > 128){
-      passwordLegnth = prompt("You must choose between 8 and 128 characters");
-      console.log("Password length " + passwordLegnth);
+    } 
     
-    } else {
-      confirmlower = confirm("Would you like lowercase characters?");
+    else if (passwordLength < 8 || passwordLength > 128) {
+      passwordLegnth = prompt("You must choose between 8 and 128 characters");
+      console.log("Password length " + passwordLength);
+    } 
+    
+    else {
+      confirmLower = confirm("Would you like lowercase characters?");
       console.log("Lower case " + confirmLower);
       confirmUpper = confirm("Would you like uppercase characters?");
       console.log("Upper case " + confirmUpper);
-      confirmNumber("Would you like numbers?");
+      confirmNumber = confirm("Would you like numbers?");
       console.log("Number " + confirmNumber);
-      confirmSpecial("Would you like to use special characters?");
+      confirmSpecial = confirm("Would you like to use special characters?");
       console.log("Special Character " + confirmSpecial);
     };
 
@@ -143,14 +145,22 @@ function generatePassword() {
     console.log(userChoices);
   };
 
-  //Random selection loop
+  //Empty variable for password legnth
 
-  for (var i = 0; i < passwordLegnth; i++) {
+  var passwordBlank = []
+
+  //Random selection loop
+  for (var i = 0; i < passwordLength; i++) {
     var allChoices = userChoices[Math.floor(Math.random() * userChoices.length)];
     passwordBlank.push(allChoices);
     console.log(allChoices);
   }
 
+  //merge and display password
+
+  var password = passwordBlank.join("");
+  console.log("Your password is: " + password);
+  return password;
 
 }
 
