@@ -92,14 +92,65 @@ function generatePassword() {
     //if 2 options apply
 
     else if (confirmLower && confirmUpper) {
-      userChoices = upperCase.concat(lowerCase);
+      userChoices = lowerCase.concat(upperCase);
       console.log(userChoices);
     }
 
     else if (confirmLower && confirmNumber){
-      userChoices = upperCase.concat(numbers);
+      userChoices = lowerCase.concat(numbers);
       console.log(userChoices);
     }
+
+    else if (confirmLower && confirmSpecial){
+      userChoices = lowerCase.concat(special);
+      console.log(userChoices);
+    }    
+        
+    else if (confirmUpper && confirmNumber){
+      userChoices = upperCase.concat(numbers);
+      console.log(userChoices);
+    }    
+    
+    else if (confirmUpper && confirmSpecial){
+      userChoices = upperCase.concat(special);
+      console.log(userChoices);
+    }
+
+    else if (confirmNumber && confirmSpecial){
+      userChoices = numbers.concat(special);
+      console.log(userChoices);
+    }
+
+  //if 1 option apply
+
+  else if (confirmlower){
+    userChoices = lowerCase;
+    console.log(userChoices);
+  }
+
+  else if (confirmUpper){
+    userChoices = blankUpper.concat(upperCase);
+    console.log(userChoices);
+  }
+
+  else if (confirmNumber){
+    userChoices = numbers;
+    console.log(userChoices);
+  }
+
+  else if(confirmSpecial){
+    userChoices = special;
+    console.log(userChoices);
+  };
+
+  //Random selection loop
+
+  for (var i = 0; i < passwordLegnth; i++) {
+    var allChoices = userChoices[Math.floor(Math.random() * userChoices.length)];
+    passwordBlank.push(allChoices);
+    console.log(allChoices);
+  }
+
 
 }
 
