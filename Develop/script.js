@@ -28,7 +28,8 @@ function writePassword() {
   passwordText.value = password;
 }
 
-
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 // Start Function
 function generatePassword() {
@@ -38,7 +39,7 @@ function generatePassword() {
     console.log("Password length " + passwordLegnth);
 
     if(!passwordLegnth) {
-      alert("Required Value");
+      alert("You Must Input a Value!");
    
     } else if (passswordLegnth < 8 || passwordLegnth > 128){
       passwordLegnth = prompt("You must choose between 8 and 128 characters");
@@ -49,28 +50,58 @@ function generatePassword() {
       console.log("Lower case " + confirmLower);
       confirmUpper = confirm("Would you like uppercase characters?");
       console.log("Upper case " + confirmUpper);
+      confirmNumber("Would you like numbers?");
+      console.log("Number " + confirmNumber);
       confirmSpecial("Would you like to use special characters?");
-      console.log("Special Character " + confirmSpecial)
+      console.log("Special Character " + confirmSpecial);
+    };
+
+
+    //if no answer
+    if(!confirmLower && !confirmUpper && !confirmNumber && !confirmSpecial) {
+      userChoices = alert("You must choose a criteria for your password!");
+    } 
+    
+    //if all options apply
+    else if (confirmLower && confirmUpper && confirmNumber && confirmSpecial) {
+      userChoices = lowerCase.concat(upperCase, numbers, special);
+      console.log(userChoices);
+    }
+
+    //if 3 options apply
+    else if (confirmLower && confirmUpper && confirmNumber) {
+      userChoices = lowerCase.concat(upperCase, numbers);
+      console.log(userChoices);
+    }
+
+    else if (confirmLower && confirmUpper && confirmSpecial) {
+      userChoices = lowerCase.concat(upperCase, special);
+      console.log(userChoices);
+    }
+
+    else if (confirmLower && confirmNumber && confirmSpecial){
+      userChoices = lowerCase.concat(numbers, special);
+      console.log(userChoices);
+    }
+
+    else if (confirmUpper && confirmNumber && confirmSpecial) {
+      userChoices = upperCase.concat(numbers, special);
+      console.log(userChoices);
+    }
+
+    //if 2 options apply
+
+    else if (confirmLower && confirmUpper) {
+      userChoices = upperCase.concat(lowerCase);
+      console.log(userChoices);
+    }
+
+    else if (confirmLower && confirmNumber){
+      userChoices = upperCase.concat(numbers);
+      console.log(userChoices);
     }
 
 }
-
-
-// Write password to the #password input
-function writePassword() {
-  
-  //get user options
-    var UserOptions = getUserOptions();
-  
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
 
 
